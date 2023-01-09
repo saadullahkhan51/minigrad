@@ -100,7 +100,7 @@ class Tensor:
         # the indexing seems to be working, hardcoded for a 2x2 filter/kernel
         for i in range(0, out_shape[1], stride):
             for j in range(0, out_shape[0], stride):
-                output.data[i][j] = (self.data[i:i+kernel.shape[0], j:j+kernel.shape[0]] * kernel.data).sum()
+                output.data[i][j] = (self.data[i][j:j+kernel.shape[0]] * kernel.data[0]).sum() + (self.data[i+1][j:j+kernel.shape[0]] * kernel.data[1]).sum()
         return output
                 
         # TODO

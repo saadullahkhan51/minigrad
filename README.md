@@ -1,0 +1,1 @@
+Auto differentiation engine based on micrograd. Added tensors with matmul and add operations. Should be able to do basic linear layer with these.

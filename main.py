@@ -1,13 +1,28 @@
 import numpy as np
 # from scalar import Scalar
 from tensor import Tensor
+from nn import Linear
 
-a0 = Tensor([[0.5, 1], [1, 0.5]])
-w0 = Tensor(np.ones((3, 2)))
-b0 = Tensor(np.random.randn(2))
-z1 = w0 @ a0
-a1 = z1 + b0
-print(z1.shape)
+x = Tensor([[1, 2, 3], [4, 5, 6]])
+l1 = Linear(3, 2, bias=True)
+l2 = Linear(2, 3, bias=True)
+y = Linear(3, 2)
+
+z = y(x)
+print(z)
+
+signal = Tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+kernel = Tensor([[1, 2], [3, 4]])
+
+fm2 = signal.conv2d(kernel)
+print(fm2)
+#################################################
+# w0 = Tensor(np.ones((3, 2)))
+# b0 = Tensor(np.random.randn(2))
+# z1 = w0 @ a0
+# a1 = z1 + b0
+# print(z1.shape)
+
 # a1 = Tensor.tanh(z1)
 # print(a1.grad)
 # print(z1.grad)
